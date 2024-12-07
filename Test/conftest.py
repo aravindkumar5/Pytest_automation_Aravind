@@ -5,10 +5,9 @@ from selenium.webdriver.firefox import options
 
 from Config.config import TestData
 
-web_driver = None
+
 @pytest.fixture(params=["chrome"], scope='class')
 def init_driver(request):
-    global web_driver
     if request.param == "chrome":
         service_obj = Service(executable_path=TestData.CHROME_EXECUTABLE_PATH)
         web_driver = webdriver.Chrome(service=service_obj)

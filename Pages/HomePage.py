@@ -13,7 +13,7 @@ class LoginPage(BasePage):
     #TODO page action for login page
 
     def __init__(self, driver):
-        super().__init__(driver)
+        self.driver = driver
 
     def get_title(self, title):
         return self.get_title(title)
