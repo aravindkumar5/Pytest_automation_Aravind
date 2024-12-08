@@ -38,3 +38,7 @@ class BasePage:
         hover = ActionChains(self.driver).move_to_element(element)
         return hover
 
+    def scroll_to_element(self, by_locator):
+        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+

@@ -19,7 +19,16 @@ class Test_Homepage(BaseTest):
     def test_hover_skincare(self):
         self.hp = HomePage(self.driver)
         self.hp.skincare_hover()
+        self.hp.product_navigation() #2nd case
+        self.hp.scroll_to_skincare()
+        self.hp.quickview_hover()
+        self.hp.click_quick_view()
+        self.hp.add_to_bag()
+        self.hp.check_out()
+        self.hp.cart_check_out()
 
-    def test_skincare(self):
-        self.hp = HomePage()
+
+
+
+
 
