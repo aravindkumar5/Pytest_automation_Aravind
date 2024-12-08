@@ -4,9 +4,15 @@ class TestData():
     BASE_URL = "https://www.clinique.com"
     USER_NAME = "qatester123@gmail.com"
     PASSWORD = "Tester123"
-    PAGE_TITLE = 'Clinique Official Site | Skincare and Makeup Online'
+    PAGE_TITLE = 'Clinique | Dermatology Skincare, Makeup, Fragrances & Gifts'
     LOGIN_PAGE_TITLE = "Clinique"
-
+    FIRST_NAME = "TESTER"
+    LAST_NAME = "TESTER2"
+    ADDRESS_1 = "test"
+    ADDRESS_2 = "test2"
+    PINCODE = "10001"
+    CITY = "New York"
+    PHONE_NO = "8987654567"
 
 
 

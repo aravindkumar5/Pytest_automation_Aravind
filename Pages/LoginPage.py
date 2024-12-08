@@ -22,7 +22,7 @@ class LoginPage(BasePage):
         super().__init__(driver)
 
     def get_title(self, title):
-        return self.get_title(title)
+        return self.driver.title
 
     def is_signup_link_exist(self):
         return self.is_visible(self.home_signin)

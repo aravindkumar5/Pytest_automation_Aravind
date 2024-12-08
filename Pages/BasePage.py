@@ -1,10 +1,10 @@
 #TODO This class is the parent of all the Pages
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
-
 
 from Config.config import TestData
 
@@ -20,7 +20,7 @@ class BasePage:
         return self.get_title(title)
 
     def click(self, by_locator):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(by_locator)).click()
 
     def sendkeys(self, by_locator, text):
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
@@ -42,3 +42,7 @@ class BasePage:
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
 
+    def select_from_dropdown(self, by_locator, value):
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(by_locator))
+        select = Select(element)
+        select.select_by_visible_text(value)
