@@ -1,5 +1,7 @@
 import pytest
 from selenium import webdriver
+
+from Pages.HomePage import HomePage
 from Pages.LoginPage import LoginPage
 
 from Config.config import TestData
@@ -8,36 +10,29 @@ from Pages.BasePage import BasePage
 from Test.test_base import BaseTest
 
 
-class Test_Login_001():
-    BASE_URL = "https://www.clinique.com"
-    USER_NAME = "qatester123@gmail.com"
-    PASSWORD = "Tester123"
-    PAGE_TITLE = 'Clinique | Dermatology Skincare, Makeup, Fragrances & Gifts'
-    LOGIN_PAGE_TITLE = "Clinique"
+class Test_Login(BaseTest):
 
-    def test_homePageTitle(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get(self.BASE_URL)
-        actual_title = self.driver.title
-        if actual_title == "Clinique | Dermatology Skincare, Makeup, Fragrances & Gifts":
-            assert True
-        else:
-            assert False
-        self.driver.close()
-
-    def test_signup_link(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get(self.BASE_URL)
+    @pytest.mark.first
+    def test_signup_link_visible(self):
         self.lp = LoginPage(self.driver)
-        # self.lp.close_popup()
-        self.lp.homepage_signin()
-        self.lp.username(self.USER_NAME)
-        self.lp.password(self.PASSWORD)
-        self.lp.click_signin()
-        if self.lp.is_displayed():
-            print("successfully logged")
+        flag = self.lp.is_signup_link_exist()
+        assert flag
+
+    @pytest.mark.second
+    def test_click_login_link(self):
+        self.lp = LoginPage(self.driver)
+        self.lp.click_signin_link()
+
+    @pytest.mark.third
+    def test_logged_in(self):
+        self.lp = LoginPage(self.driver)
+        self.lp.use_login(TestData.USER_NAME, TestData.PASSWORD)
+
+    @pytest.mark.last
+    def test_login_page_title(self):
+        self.lp = LoginPage(self.driver)
+        title = self.lp.get_title(TestData.LOGIN_PAGE_TITLE)
+        assert title == TestData.LOGIN_PAGE_TITLE
 
 
-    def test_login(self):
-        pass
 

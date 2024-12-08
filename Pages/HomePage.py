@@ -5,21 +5,26 @@ from Config.config import TestData
 from selenium.webdriver import ActionChains
 
 
-class LoginPage(BasePage):
-    CLOSE_POPUP = "//button[@id='dismissBtn']"
-    SKINCARE = "//label[@aria-label='Skincare']"
-    AGING = "//a[contains(text(),'Anti-Aging')]"
+class HomePage(BasePage):
+    CLOSE_POPUP = (By.XPATH, "//button[@id='dismissBtn']")
+    SKINCARE = (By.XPATH, "//label[@aria-label='Skincare']")
+    AGING = (By.XPATH, "//a[contains(text(),'Anti-Aging')]")
 
     #TODO page action for login page
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
     def get_title(self, title):
         return self.get_title(title)
 
-    def close_popup(self, CLOSE_POPUP):
-        self.do_click(self.CLOSE_POPUP)
+    # def close_popup(self, CLOSE_POPUP):
+    #     self.do_click(self.CLOSE_POPUP)
+
+    def skincare_hover(self):
+        hover_action = self.mouse_hover(self.SKINCARE)
+        hover_action.perform()
+
 
     def validate_title(self, ):
         if (self.get_title() == self.driver.get(TestData.PAGE_TITLE)):
