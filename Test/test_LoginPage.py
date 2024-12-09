@@ -23,18 +23,18 @@ class Test_Login(BaseTest):
 
 
 
-    # def test_click_login_link(self):
-    #     self.lp = LoginPage(self.driver)
-    #     self.lp.click_signin_link()
-    #
-    # def test_logged_in(self):
-    #     self.lp = LoginPage(self.driver)
-    #     self.lp.use_login(TestData.USER_NAME, TestData.PASSWORD)
-    #
-    # def test_login_page_title(self):
-    #     self.lp = LoginPage(self.driver)
-    #     title = self.lp.get_title(TestData.LOGIN_PAGE_TITLE)
-    #     assert title == TestData.LOGIN_PAGE_TITLE
+    def test_click_login_link(self):
+        self.lp = LoginPage(self.driver)
+        self.lp.click_signin_link()
+
+    def test_logged_in(self):
+        self.lp = LoginPage(self.driver)
+        self.lp.use_login(TestData.USER_NAME, TestData.PASSWORD)
+
+    def test_login_page_title(self):
+        self.lp = LoginPage(self.driver)
+        title = self.lp.get_title(TestData.LOGIN_PAGE_TITLE)
+        assert title == TestData.LOGIN_PAGE_TITLE
     #
 
 

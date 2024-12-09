@@ -10,6 +10,7 @@ from Config.config import TestData
 def init_driver(request):
     if request.param == "chrome":
         web_driver = webdriver.Chrome()
+        web_driver.maximize_window()
         # service_obj = Service(executable_path=TestData.CHROME_EXECUTABLE_PATH)
         # web_driver = webdriver.Chrome(service=service_obj)
     if request.param == "firefox":
