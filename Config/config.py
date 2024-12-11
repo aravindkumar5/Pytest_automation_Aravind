@@ -4,7 +4,7 @@ class TestData():
     BASE_URL = "https://www.clinique.com"
     USER_NAME = "qatester123@gmail.com"
     PASSWORD = "Tester123"
-    PAGE_TITLE = 'Clinique | Dermatology Skincare, Makeup, Fragrances & Gifts'
+    PAGE_TITLE = 'Clinique | Shop up to 50% off Exclusive Skincare & Makeup'
     LOGIN_PAGE_TITLE = "Clinique"
     FIRST_NAME = "TESTER"
     LAST_NAME = "TESTER2"

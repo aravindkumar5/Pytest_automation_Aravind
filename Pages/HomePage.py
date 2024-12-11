@@ -29,6 +29,7 @@ class HomePage(BasePage):
     EMAIL_FIELD = (By.NAME, "EMAIL_ADDRESS")
     NEW_SHIPPING_ADD = (By.XPATH, "//div[contains(@class,'new-address-label')]")
     STATE_NAME = (By.XPATH,"//li[@id='downshift-0-item-2']")
+    FOOTER_LINK = (By.XPATH,"//a[@class='text-link--style-2']")
 
     #TODO page action for login page
 
@@ -88,6 +89,10 @@ class HomePage(BasePage):
 
     def new_shipping_add_click(self):
         self.click(self.NEW_SHIPPING_ADD)
+
+    def footer_link_check(self):
+        self.a_click(self.FOOTER_LINK)
+
 
 
     # def validate_title(self, ):
