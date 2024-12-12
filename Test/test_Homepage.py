@@ -1,5 +1,7 @@
 import time
 
+from selenium.webdriver.common.by import By
+
 from Pages.BasePage import BasePage
 from Pages.HomePage import HomePage
 from Pages.LoginPage import LoginPage
@@ -46,9 +48,12 @@ class Test_Homepage(BaseTest):
 
     def test_footer_link(self):
         self.hp = HomePage(self.driver)
-        for link in self.hp.FOOTER_LINK:
-            self.hp.footer_link_check()
-            # a = link.text()
-            # print(a)
-            link.click()
+        self.hp.scroll_to_footer()
+        footer_links = self.hp.footer_link_check()
+        for link_name in footer_links:
+        # element = self.hp.driver.find_elements(By.XPATH,"//a[@class='text-link--style-2']")
+        # for link_name in element:
+            print(link_name.text)
+
+
 

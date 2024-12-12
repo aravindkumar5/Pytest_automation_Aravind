@@ -79,6 +79,9 @@ class HomePage(BasePage):
         # self.click(self.STATE_LIST)
         # self.click(self.STATE_NAME)
 
+    def scroll_to_footer(self):
+        self.scroll_to_element(self.FOOTER_LINK)
+
     # def state_dropdown(self, value):
     #     self.select_from_dropdown(self.STATE_LIST, value)
 
