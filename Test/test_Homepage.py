@@ -1,6 +1,9 @@
 import time
+from time import sleep
 
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.devtools.v85.dom import get_attributes
 
 from Pages.BasePage import BasePage
 from Pages.HomePage import HomePage
@@ -51,9 +54,14 @@ class Test_Homepage(BaseTest):
         self.hp.scroll_to_footer()
         footer_links = self.hp.footer_link_check()
         for link_name in footer_links:
-        # element = self.hp.driver.find_elements(By.XPATH,"//a[@class='text-link--style-2']")
-        # for link_name in element:
-            print(link_name.text)
+            get_link = link_name.get_attribute("href")
+            print(link_name.text,'-',get_link)
+            ActionChains(self.hp.driver).key_down(Keys.CONTROL).click(link_name).key_up(Keys.CONTROL).perform()
+            # time.sleep(5)
+            # self.hp.driver.close()
+
+
+
 
 
 

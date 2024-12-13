@@ -94,7 +94,8 @@ class HomePage(BasePage):
         self.click(self.NEW_SHIPPING_ADD)
 
     def footer_link_check(self):
-        self.a_click(self.FOOTER_LINK)
+       element = self.a_click(self.FOOTER_LINK)
+       return element
 
 
 
