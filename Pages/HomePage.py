@@ -28,8 +28,8 @@ class HomePage(BasePage):
     CHK_BTN = (By.XPATH, "//input[@data-test-id='form_signin_continue']")
     EMAIL_FIELD = (By.NAME, "EMAIL_ADDRESS")
     NEW_SHIPPING_ADD = (By.XPATH, "//div[contains(@class,'new-address-label')]")
-    STATE_NAME = (By.XPATH,"//li[@id='downshift-0-item-2']")
-    FOOTER_LINK = (By.XPATH,"//a[@class='text-link--style-2']")
+    STATE_NAME = (By.XPATH, "//li[@id='downshift-0-item-2']")
+    FOOTER_LINK = (By.XPATH, "//a[@class='text-link--style-2']")
 
     #TODO page action for login page
 
@@ -94,10 +94,8 @@ class HomePage(BasePage):
         self.click(self.NEW_SHIPPING_ADD)
 
     def footer_link_check(self):
-       element = self.a_click(self.FOOTER_LINK)
-       return element
-
-
+        element = self.a_click(self.FOOTER_LINK)
+        return element
 
     # def validate_title(self, ):
     #     if (self.get_title() == self.driver.get(TestData.PAGE_TITLE)):

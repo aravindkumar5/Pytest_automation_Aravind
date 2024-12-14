@@ -11,6 +11,7 @@ from Pages.LoginPage import LoginPage
 from Test.test_base import BaseTest
 from Config.config import TestData
 from selenium import webdriver
+import requests
 
 
 class Test_Homepage(BaseTest):
@@ -57,13 +58,21 @@ class Test_Homepage(BaseTest):
             get_link = link_name.get_attribute("href")
             print(link_name.text,'-',get_link)
             ActionChains(self.hp.driver).key_down(Keys.CONTROL).click(link_name).key_up(Keys.CONTROL).perform()
-            window_handle = self.hp.driver.window_handles
-            parent_window = window_handle[0]
-            child_window = window_handle[1]
-            self.hp.driver.switch_to.window(child_window)
-            time.sleep(2)
-            self.hp.driver.close()
+            window_handles = self.hp.driver.window_handles
+            parent_window = window_handles[0]
+            if len(window_handles) > 1:
+                child_window = window_handles[1]
+                self.hp.driver.switch_to.window(child_window)
+                time.sleep(2)
+                # child_window_url = self.hp.driver.current_url
+                # response = requests.get(child_window_url)
+                # if response.status_code == 200:
+                #     print(f"Success: The page {child_window_url} returned a 200 OK response.")
+                # else:
+                #     print(f"Error: The page {child_window_url} returned a {response.status_code} response.")
+                self.hp.driver.close()
             self.hp.driver.switch_to.window(parent_window)
+
             # self.hp.driver.close()
             # self.hp.driver.switch_to.window(parent_window)
             # title = self.hp.driver.get_title
