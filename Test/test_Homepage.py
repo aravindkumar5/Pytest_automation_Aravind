@@ -57,6 +57,22 @@ class Test_Homepage(BaseTest):
             get_link = link_name.get_attribute("href")
             print(link_name.text,'-',get_link)
             ActionChains(self.hp.driver).key_down(Keys.CONTROL).click(link_name).key_up(Keys.CONTROL).perform()
+            window_handle = self.hp.driver.window_handles
+            parent_window = window_handle[0]
+            child_window = window_handle[1]
+            self.hp.driver.switch_to.window(child_window)
+            time.sleep(2)
+            self.hp.driver.close()
+            self.hp.driver.switch_to.window(parent_window)
+            # self.hp.driver.close()
+            # self.hp.driver.switch_to.window(parent_window)
+            # title = self.hp.driver.get_title
+            # print(title)
+
+            # if offer == self.hp.driver.title:
+            # elif
+
+
             # time.sleep(5)
             # self.hp.driver.close()
 
