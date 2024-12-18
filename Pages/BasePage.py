@@ -20,7 +20,11 @@ class BasePage:
         return self.get_title(title)
 
     def click(self, by_locator):
-        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(by_locator)).click()
+        try:
+            WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(by_locator)).click()
+        except Exception as e:
+            logger.error(f"An error occurred while clicking the element {by_locator}: {str(e)}")
+            pass
 
     def a_click(self, by_locator):
         element = WebDriverWait(self.driver, 15).until(EC.visibility_of_all_elements_located(by_locator))
