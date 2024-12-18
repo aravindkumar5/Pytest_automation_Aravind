@@ -36,8 +36,8 @@ class HomePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def get_title(self, title):
-        return self.driver.title
+    # def get_title(self):
+    #     return self.driver.title
 
     # def close_popup(self, CLOSE_POPUP):
     #     self.do_click(self.CLOSE_POPUP)
