@@ -8,7 +8,7 @@ from selenium.webdriver import ActionChains
 class HomePage(BasePage):
     CLOSE_POPUP = (By.XPATH, "//button[@id='dismissBtn']")
     SKINCARE = (By.XPATH, "//label[@aria-label='Skincare']")
-    AGING = (By.XPATH, "(//a[contains(text(),'Anti-Aging')])[2]")
+    AGING = (By.XPATH, "(//a[contains(text(),'Anti-Aging')])[1]")
     QUICK_SHOP = (By.XPATH, "(//button[@aria-label='Quick Shop'])[4]")
     PROD_IMG = (By.XPATH, "//img[@alt='1.7oz / 50ml | clinique smart clinical repair™ lifting face + neck cream']")
     SHORT_DEC = (By.XPATH, "(//div[@class='elc-product-name-section js-product-name-section'])[4]")
@@ -94,7 +94,7 @@ class HomePage(BasePage):
         self.click(self.NEW_SHIPPING_ADD)
 
     def footer_link_check(self):
-        element = self.a_click(self.FOOTER_LINK)
+        element = self.all_click(self.FOOTER_LINK)
         return element
 
     # def validate_title(self, ):

@@ -8,6 +8,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 from Config.config import TestData
 
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
 
 class BasePage:
 
@@ -21,12 +26,18 @@ class BasePage:
 
     def click(self, by_locator):
         try:
-            WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(by_locator)).click()
+            # Wait for the element to be visible and clickable
+            WebDriverWait(self.driver, timeout=15).until(
+                EC.visibility_of_element_located(by_locator)
+            ).click()
+            logger.info(f"Successfully clicked the element: {by_locator}")
+            return True  # Explicitly return success
         except Exception as e:
+            # Log the error and return failure
             logger.error(f"An error occurred while clicking the element {by_locator}: {str(e)}")
-            pass
+            return False  # Explicitly return failure
 
-    def a_click(self, by_locator):
+    def all_click(self, by_locator):
         element = WebDriverWait(self.driver, 15).until(EC.visibility_of_all_elements_located(by_locator))
         # element = self.driver.find_elements(by_locator)
         return  element
