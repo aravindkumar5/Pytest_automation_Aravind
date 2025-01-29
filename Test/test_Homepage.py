@@ -31,23 +31,23 @@ class TestHomepage(BaseTest):
     #     else:
     #         assert False
     @classmethod
-    def test_hover_skincare(cls):
+    def test_homepage_title(cls):
         cls.hp = HomePage(cls.driver)
         title = cls.hp.driver.title
         if title == TestData.PAGE_TITLE:
             logger.info("Verified the page title")
         else:
-            logger.error("Page title is not matching with the expected title")
+            logger.info("Page title is not matching with the expected title")
             assert title, "Page title verification failed"
 
     def test_prod_nav(self):
         self.hp.skincare_hover()
         title = self.hp.driver.title
         self.hp.product_navigation()
-        if title == TestData.AGING_TITLE:
+        if self.hp.anti_aging():
             logger.info("Navigated to Anti-Aging link")
         else:
-            logger.error("Page title is not matching with the expected title")
+            logger.info("Not navigated to Anit-Aging")
             assert title, "Page title verification failed"
 
         # screenshot_data = self.hp.driver.get_screenshot_as_png()

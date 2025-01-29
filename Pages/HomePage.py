@@ -7,6 +7,7 @@ from selenium.webdriver import ActionChains
 
 class HomePage(BasePage):
     CLOSE_POPUP = (By.XPATH, "//button[@id='dismissBtn']")
+    ANTI_AGING = (By.XPATH,"//a[@title='Anti-Aging']")
     SKINCARE = (By.XPATH, "//label[@aria-label='Skincare']")
     AGING = (By.XPATH, "(//a[contains(text(),'Anti-Aging')])[1]")
     QUICK_SHOP = (By.XPATH, "(//button[@aria-label='Quick Shop'])[4]")
@@ -67,6 +68,9 @@ class HomePage(BasePage):
 
     def cart_check_out(self):
         self.click(self.CART_CHECK_OUT)
+
+    def anti_aging(self):
+        self.is_displayed(self.ANTI_AGING)
 
     def checkout_address(self, firstname, lastname, address1, address2, pincode, city, phone_no):
         self.sendkeys(self.FIRST_NAME, firstname)
