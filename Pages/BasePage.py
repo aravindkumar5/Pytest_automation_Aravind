@@ -46,7 +46,7 @@ class BasePage:
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
 
     def is_displayed(self, by_locator):
-        element = WebDriverWait(self.driver, 20git).until(EC.visibility_of_element_located(by_locator)).is_displayed()
+        element = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(by_locator)).is_displayed()
         assert element, "element not displayed"
 
     def is_visible(self, by_locator):
