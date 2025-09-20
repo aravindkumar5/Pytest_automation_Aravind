@@ -5,6 +5,7 @@ class TestData():
     USER_NAME = "qatester123@gmail.com"
     PASSWORD = "Tester123"
     PAGE_TITLE = 'Clinique | Dermatology Skincare, Makeup, Fragrances & Gifts'
+    AGING_TITLE = 'Anti-Aging Skincare | Skin Concern | Clinique'
     LOGIN_PAGE_TITLE = "Clinique"
     FIRST_NAME = "TESTER"
     LAST_NAME = "TESTER2"
